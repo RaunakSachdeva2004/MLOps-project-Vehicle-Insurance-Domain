@@ -14,6 +14,13 @@ A comprehensive end-to-end Machine Learning Operations (MLOps) project for predi
 *   **CI/CD Pipeline:** Automated deployment workflow configured via GitHub Actions.
 *   **Containerization:** Fully dockerized application for consistent environments.
 
+## Model Evaluation & Metrics
+
+The project utilizes automated model evaluation to ensure production quality. While specific performance scores depend on the training data, the pipeline enforces the following validation metrics during CI/CD:
+*   **Minimum Accuracy:** A base accuracy threshold (e.g., `0.6` or 60%) is required for any newly trained model to be considered valid.
+*   **Promotion Threshold:** A new model is only promoted and pushed to the AWS S3 model registry if its performance exceeds the currently deployed model by a minimum threshold (e.g., `0.02` or 2%).
+*   **Calculated Metrics:** The pipeline calculates Accuracy, F1 Score, Precision, and Recall during the evaluation phase for comprehensive tracking.
+
 ## Tech Stack
 
 *   **Programming Language:** Python 3.10
